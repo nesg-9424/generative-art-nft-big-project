@@ -130,6 +130,13 @@ def generate_trait_set_from_config():
         # Select an element index based on random number and cumulative rarity weights
         idx = select_index(cum_rarities, rand_num)
 
+        print(layer['directory'])
+        if layer['directory'] == 'Scene1':
+            print(layer['directory'])
+            if trait_set[1] =='star road.png':
+                idx = 0
+                print("traits[idx]=" + str(traits[idx]) + " idx = %i", idx)
+        
         # Add selected trait to trait set
         trait_set.append(traits[idx])
 
@@ -137,6 +144,7 @@ def generate_trait_set_from_config():
         if traits[idx] is not None:
             trait_path = os.path.join(layer['directory'], traits[idx])
             trait_paths.append(trait_path)
+            print(trait_set)
         
     return trait_set, trait_paths
 
